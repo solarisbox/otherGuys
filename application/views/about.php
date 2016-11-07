@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div id="wrap">
 	<div id="body">
+<<<<<<< HEAD
 		<h1 class="text-center">About Ephemeral</h1>
 
 		</br>
@@ -20,6 +21,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<h4 class="text-center">Provide a service that will allow you to post any information, or ask questions anonymously.</h4>
 
+=======
+		<div class="row">
+			<div class="col-xs-12">
+				About Ephemeral
+			</div>
+			<div class=col-xs-12>
+				Insert description here!
+			</div>
+		</div>
+>>>>>>> origin/master
 	</div>
 </div>
 <?

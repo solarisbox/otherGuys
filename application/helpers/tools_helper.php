@@ -5,7 +5,7 @@ function isAdmin($id)
 {
 	$CI = &get_instance();
 	
-	$result = $CI->db->query("SELECT user_role_id FROM user_roles WHERE user = $id && (role = " . ADMIN_ROLE . " || role = " . ROOT_ROLE . ")";
+	$result = $CI->db->query("SELECT user_role_id FROM user_roles WHERE user = $id && (role = " . ADMIN_ROLE . " || role = " . ROOT_ROLE . ")");
 	
 	return $result->num_rows() > 0;
 }
@@ -14,7 +14,7 @@ function isRoot($id)
 {
 	$CI = &get_instance();
 	
-	$result = $CI->db->query("SELECT user_role_id FROM user_roles WHERE user = $id && role = " . ROOT_ROLE;
+	$result = $CI->db->query("SELECT user_role_id FROM user_roles WHERE user = $id && role = " . ROOT_ROLE);
 	
 	return $result->num_rows() > 0;
 }
