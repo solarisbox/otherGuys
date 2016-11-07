@@ -15,7 +15,7 @@
     </ul>
   </div>
       </button>
-      <a class="navbar-brand" href="#"><img src="http://placehold.it/140x34/000000/ffffff/&amp;text=LOGO" alt=""></a>
+      <a class="navbar-brand" href="<?= base_url(); ?>index.php?/Home">Ephemeral</a>
     </div>
     
     <!-- Collect the nav links, forms, and other content for toggling -->

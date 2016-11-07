@@ -1,6 +1,5 @@
 <?php
 
-
 $servername = "localhost";
 $username = "root";
 $password = "usbw";
@@ -20,12 +19,14 @@ $sql = "INSERT INTO test (title, message)
 VALUES ('$title', '$message')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    // echo "New record created successfully";
+    // echo "ID is: ". $conn->insert_id;
+    echo $conn->insert_id;
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
-
 
 ?>

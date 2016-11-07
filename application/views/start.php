@@ -57,15 +57,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <script type="text/javascript">
+	function post(){
+		var title = $('#title').val();
+		var message = $('#message').val();
 
-function post(){
-	var title = $('#title').val();
-	var message = $('#message').val();
-
-	$.post('message.php' , {posttitle:title,postbody:message},
-		function(data)
-		{
-			$('#results').html(data);
+		$.post('message.php' , {posttitle:title,postbody:message},
+			function(data)
+			{
+				// $('#results').html(data);
+				window.location.href = "index.php?/Thread/display/" + data;
 		});
-}
+
+		//redirect.location = 	
+	}
 </script>

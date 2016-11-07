@@ -11,17 +11,6 @@ class Thread extends CI_Controller {
     // Your own constructor code
   }
 
-  // private function display()
-  // {
-
-  //   $query = $this->db->query("SELECT FROM test WHERE id = '$id';");
-    
-  //   $this->TPL['threads'] = $query->result_array();
-
-  //   $this->template->show('Thread', $this->TPL);
-
-  // }
-
 
   public function display($id){
     $this->db->where('id', $id);
@@ -31,10 +20,10 @@ class Thread extends CI_Controller {
   }
 
   public function index()
-  {
-    
-     $this->display();
+  {  
 
+     $this->display();
+     
   }
 }
 

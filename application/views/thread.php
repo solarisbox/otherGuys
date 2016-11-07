@@ -27,15 +27,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         
         <? foreach ($threads as $row) {  ?>
-        <div class="row">
-          <div class="col-md-10 col-lg-10">
-            <h3><?= $row['title']?></h3>
-            <p><?= $row['message']?></p>
-            <p><?= $row['member']?></p>
+          <div class="row">
+            <div class="col-md-10 col-lg-10">
+              <h3><?= $row['title']?></h3>
+              <p><?= $row['message']?></p>
+              <p><?= $row['member']?></p>
+            </div>
           </div>
-        </div>
-        <hr>   
-              
+          <hr>           
         <? } ?>
 
         <a href="<?= base_url(); ?>index.php?/Start"><button class="btn btn-primary">Post Reply</button></a>
