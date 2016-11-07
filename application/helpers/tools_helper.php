@@ -40,3 +40,8 @@ function getThreadExpireWarningThreshold()
 	
 	return (int) $row->config_value;
 }
+
+function convertBooleanToInt($bool)
+{
+	return $bool ? 1 : 0;
+}

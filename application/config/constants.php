@@ -86,3 +86,9 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 define("ROOT_ROLE", 0);
 define("ADMIN_ROLE", 1);
+define('ENCRYPT_PASS',"8c2QGl1V6hvFYMEj3YVBrA96X43Ig8Wj");
+define('ENCRYPT_IV',"T5UXsyhIV307vdvR");
+define('USER_STATUS_INACTIVE', 0);
+define('USER_STATUS_ACTIVE', 1);
+define('USER_STATUS_BANNED', 2);
+define('USER_STATUS_FROZEN', 3);

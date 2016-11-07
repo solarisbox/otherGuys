@@ -27,7 +27,7 @@
 	 	<li id="aboutNav"><a href="<?= base_url(); ?>index.php?/About">About</a></li>
       </ul>      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">
+        <li><a href="<?php echo base_url() . 'index.php?/' . (isset($_SESSION['userid']) && !empty($_SESSION['userid']) ? 'Login/logout' : 'Login'); ?>">
           <span class="glyphicon glyphicon-user"></span>
         </a></li>
       </ul>
