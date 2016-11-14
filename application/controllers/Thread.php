@@ -4,26 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Thread extends CI_Controller {
 
   var $TPL;
-
+  
   public function __construct()
   {
     parent::__construct();
-    // Your own constructor code
+    $this->load->library('ThreadRepository');
   }
 
-
-  public function display($id){
-    $this->db->where('id', $id);
-    $query = $this->db->get('test');
-    $this->TPL['threads'] = $query->result_array();
+  public function display($id)
+  {
+    $this->TPL['threads'] = $this->ThreadRepository->showThread($id);
     $this->template->show('Thread', $this->TPL);
   }
 
   public function index()
   {  
-
      $this->display();
-     
   }
+  
 }
 
