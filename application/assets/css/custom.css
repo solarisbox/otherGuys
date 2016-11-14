@@ -15,6 +15,11 @@ body {
   overflow: hidden;
 }
 
+.inline
+{
+	display:inline;	
+}
+
 #footer {
   height: 80px;
   background-color: #f5f5f5;

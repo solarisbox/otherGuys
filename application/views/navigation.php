@@ -29,7 +29,7 @@
         <?php $isUserLoggedIn = isset($_SESSION['userid']) && !empty($_SESSION['userid']); ?>
         <?php if($isUserLoggedIn): ?>
 	        <li>       
-	        	<a href = "">
+	        	<a href = "<?php echo base_url() . 'index.php?/Admin/displayControlPanel'?>">
 	          		<span class="glyphicon glyphicon-user"></span>
 	          	</a>
 	        </li>

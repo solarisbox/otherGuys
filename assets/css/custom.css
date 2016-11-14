@@ -20,6 +20,18 @@ body {
   background-color: #101010;
 }
 
+.inline
+{
+	display:inline;	
+}
+
+.styleless-button
+{
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+}
 
 #wrap > .center-container {
   padding: 50px 0 0 0;

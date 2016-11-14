@@ -32,27 +32,31 @@ function isThreadExpiring($id)
 
 function getDefaultUserState()
 {
-	$CI = &get_instance();
-	
-	$result = $CI->db->query("SELECT config_value FROM portal_config WHERE config_key = 'DEFAULT_USER_STATE'");
-	
-	$row = $result->row();
-	
-	return (int) $row->config_value;
+	return (int) getPortalConfigValue('DEFAULT_USER_STATE');
 }
 
 function getThreadExpireWarningThreshold()
 {
-	$CI = &get_instance();
-	
-	$result = $CI->db->query("SELECT config_value FROM portal_config WHERE config_key = 'THREAD_EXPIRE_WARNING_THRESHOLD'");
-	
-	$row = $result->row();
-	
-	return (int) $row->config_value;
+	return (int) getPortalConfigValue('THREAD_EXPIRE_WARNING_THRESHOLD');
 }
 
 function convertBooleanToInt($bool)
 {
 	return $bool ? 1 : 0;
+}
+
+function getThreadLimit()
+{
+	return (int) getPortalConfigValue('THREAD_LIMIT');
+}
+
+function getPortalConfigValue($key)
+{
+	$CI = &get_instance();
+	
+	$result = $CI->db->query("SELECT config_value FROM portal_config WHERE config_key = '$key'");
+	
+	$row = $result->row();
+	
+	return $row->config_value;
 }
