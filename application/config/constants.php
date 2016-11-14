@@ -84,11 +84,11 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-define("ROOT_ROLE", 0);
-define("ADMIN_ROLE", 1);
+define("ROOT_ROLE", 1);
+define("ADMIN_ROLE", 2);
 define('ENCRYPT_PASS',"8c2QGl1V6hvFYMEj3YVBrA96X43Ig8Wj");
 define('ENCRYPT_IV',"T5UXsyhIV307vdvR");
-define('USER_STATUS_INACTIVE', 0);
-define('USER_STATUS_ACTIVE', 1);
-define('USER_STATUS_BANNED', 2);
-define('USER_STATUS_FROZEN', 3);
+define('USER_STATUS_INACTIVE', 1);
+define('USER_STATUS_ACTIVE', 2);
+define('USER_STATUS_BANNED', 3);
+define('USER_STATUS_FROZEN', 4);

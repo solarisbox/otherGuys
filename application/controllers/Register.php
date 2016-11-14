@@ -58,7 +58,7 @@ class Register extends MY_Controller {
 					'username' => $username,
 					'email' => $email,
 					'private' => $private,
-					'status' => USER_STATUS_ACTIVE
+					'active' => 1
 			);
 				
 			$this->db->set($newUser);
