@@ -30,6 +30,17 @@ function isThreadExpiring($id)
 	return $result->num_rows() > 0;
 }
 
+function getDefaultUserState()
+{
+	$CI = &get_instance();
+	
+	$result = $CI->db->query("SELECT config_value FROM portal_config WHERE config_key = 'DEFAULT_USER_STATE'");
+	
+	$row = $result->row();
+	
+	return (int) $row->config_value;
+}
+
 function getThreadExpireWarningThreshold()
 {
 	$CI = &get_instance();
