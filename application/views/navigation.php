@@ -21,21 +21,30 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-      	<li id="homeNav"><a href="<?= base_url(); ?>index.php?/Home">Home</a></li>
         <li id="forumNav"><a href="<?= base_url(); ?>index.php?/Forum">Forum</a></li>
         <li id="searchNav"><a href="<?= base_url(); ?>index.php?/Search">Search</a></li>
 	 	<li id="aboutNav"><a href="<?= base_url(); ?>index.php?/About">About</a></li>
       </ul>      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url() . 'index.php?/' . (isset($_SESSION['userid']) && !empty($_SESSION['userid']) ? 'Login/logout' : 'Login'); ?>">
-          <span class="glyphicon glyphicon-user"></span>
-        </a></li>
+        <?php $isUserLoggedIn = isset($_SESSION['userid']) && !empty($_SESSION['userid']); ?>
+        <?php if($isUserLoggedIn): ?>
+	        <li>       
+	        	<a href = "">
+	          		<span class="glyphicon glyphicon-user"></span>
+	          	</a>
+	        </li>
+        <?php endif; ?>
+        <li>       
+        	 <a href="<?php echo base_url() . 'index.php?/' . ($isUserLoggedIn ? 'Login/logout' : 'Login'); ?>">
+        	 	<?php echo $isUserLoggedIn ? 'Logout' : 'Login';?>
+        	 </a>
+        </li>
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Search</button>
+        <button type="submit" class="btn btn-default"><span class = "glyphicon glyphicon-search"></span></button>
       </form>
     </div><!-- /.navbar-collapse -->
   </div>
