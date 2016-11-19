@@ -1,0 +1,13 @@
+/*
+    | This file is to allow bootstrap elements to be overridden without going directly into the files
+    | If you want to change an element in bootstrap copy/paste the elements in here and make your modifications
+*/
+
+/*
+    | Turn rounded corners off
+*/
+*, html {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
