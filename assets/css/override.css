@@ -5,9 +5,27 @@
 
 /*
     | Turn rounded corners off
+    | Set website font for all content
 */
 *, html {
-  -webkit-border-radius: 0 !important;
-     -moz-border-radius: 0 !important;
-          border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    font-family: "Trebuchet MS", Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+/*
+	| Convert any background to a transparent one
+	| This will remove any previous background-color setting
+*/
+.force-transparent {
+    background-color: rgba(0,0,0,0.60) !important;
+}
+
+/*
+    | Allows the border to be overridden if the element in question has borders
+*/
+.force-transparent.bordered {
+    border-color: rgba(0,0,0,0.75) !important;
+}
+
