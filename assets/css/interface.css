@@ -1,0 +1,35 @@
+/*
+    ---------------------------------------------
+    | Panel Controls
+    ---------------------------------------------
+*/
+.panel-eph,
+.panel.panel-eph {
+    background-color: rgba(0,0,0,0.60);
+    border-color: rgba(0,0,0,0.75);
+}
+
+.panel-eph > .panel-body {
+    padding: 30px;
+}
+
+.panel-eph > .panel-heading {
+    padding: 20px 30px;
+    background-color: rgba(0,0,0,0);
+    border-bottom: 1px solid rgba(0,0,0,0.75);
+    font-weight: bold;
+}
+
+.panel-eph > .panel-footer {
+    padding: 20px 30px;
+    border-top: 1px solid rgba(0,0,0,0.75);
+    background-color: rgba(0,0,0,0);
+    font-weight: bold;
+}
+
+.panel-noborder,
+.panel-eph > .panel-heading.panel-noborder,
+.panel-eph > .panel-footer.panel-noborder {
+    border-top: 0px;
+    border-bottom: 0px;
+}

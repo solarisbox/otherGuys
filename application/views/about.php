@@ -15,9 +15,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<h5>Provide a service that will allow you to post any information, or ask questions anonymously.</h5>
 		</div>
 	</div>
-
-
-
 <?php
  	if($this->uri->segment(1)=='About'){
 	 	echo "<script>$('#aboutNav').addClass('active');</script>";

@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/custom.css" />
-    <link rel="stylesheet" href="<?= assetUrl(); ?>css/override.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/interface.css" />
+    <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/override.css" />
  </head>
  <body>
