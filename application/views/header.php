@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/custom.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="<?= assetUrl(); ?>css/override.css" type="text/css" />
  </head>
  <body>
