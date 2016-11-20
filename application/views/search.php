@@ -6,21 +6,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<title>Forum Index</title>
 </head>
-<body>
-<div id="wrap">
-	<div id="container">
-		<h1>Advanced Search</h1>
-		<div id="body">
-			<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-			
+<body class="home">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<div class="panel panel-eph">
+					<div class="panel-body">
+						<h3>Advanced Search</h3>
+						<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+						<p>Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+					</div>
+				</div>
+			</div>
 		</div>
-		<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 	</div>
-</div>
-<?
- 	if($this->uri->segment(1)=='Search'){
-	 	echo "<script>$('#searchNav').addClass('active');</script>";
-	 }
-
+<?php
+	if($this->uri->segment(1)=='Search')
+	{
+		echo "<script>$('#searchNav').addClass('active');</script>";
+	}
 ?>

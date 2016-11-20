@@ -1,9 +1,22 @@
-<div class = "">
-	<div class = "list-group" style = "width:50%;margin:0 auto;">
-		<a class = "list-group-item" href = "<?php echo base_url() . 'index.php?/Admin/displayPortalConfig' ?>">
-			Portal Configuration
-		</a>
+<body class="home">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+				<div class="panel panel-eph">
+					<div class="panel-heading">
+						<h2>Control Panel</h2>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12">
+								<a class="btn btn-default btn-block" href="<?php echo base_url() . 'index.php?/Admin/displayPortalConfig' ?>">
+									Portal Configuration
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-
-<br />
+</body>
