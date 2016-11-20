@@ -53,7 +53,7 @@
 					</a>
 				</li>
             </ul>
-            <form class="navbar-form navbar-right hidden-xs" role="search">
+            <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
 				<div class="form-group">
 					<input class="form-control" placeholder="Search" type="text">
 				</div>

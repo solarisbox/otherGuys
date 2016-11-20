@@ -33,3 +33,21 @@
     border-top: 0px;
     border-bottom: 0px;
 }
+
+.panel-eph > table,
+.panel-eph > table > tbody {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0.75);
+}
+
+.panel-eph > table > tbody > tr,
+.panel-eph > table > tbody > td,
+.panel-eph > table > tbody > th {
+    border-bottom: 1px solid rgba(0,0,0,0.75);
+}
+
+.panel-eph > table > thead,
+.panel-eph > table > tfoot {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0.75);
+}
