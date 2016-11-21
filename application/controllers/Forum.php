@@ -13,7 +13,7 @@ class Forum extends CI_Controller {
 
   private function display()
   {
-    $query = $this->db->query("SELECT * FROM test ORDER BY id ASC;");
+    $query = $this->db->query("SELECT * FROM threads ORDER BY thread_id ASC;");
     
     $this->TPL['threads'] = $query->result_array();
 
