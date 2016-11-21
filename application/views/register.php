@@ -8,51 +8,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Ephemeral - Login</title>	
 </head>
 <body class="home">
-
-<div id="wrap" class = "container-fluid ">
-	
-	<div class = "row text-center">
-		<h1>Register</h1>
-		<hr style = "width: 40%">
-	</div>
-	
-	<div class = "row">
-		<div class = "row" style = "width:40%; margin:0 auto;" "> 
-			<div class = "row">
-				<?php echo validation_errors()?>
-			</div>
-		
-			<div class = "row">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 				<form method = "POST" id = "registerForm" action = "<?php echo base_url() . 'index.php?/Register/register' ?>">
-					<div class = "form-group">
-						<label for = "username">Username:</label>
-						<input type = "text" id = "username" name = "username" class = "form-control" />
-					</div>
-					<div class = "form-group">
-						<label for = "password">Password:</label>
-						<input type = "password" id = "password" name = "password" class = "form-control" />
-					</div>
-					<div class = "form-group">
-						<label for = "passwordConfirm">Confirm Password:</label>
-						<input type = "password" id = "passwordConfirm" name = "passwordConfirm" class = "form-control" />
-					</div>
-					<div class = "form-group">
-						<label for = "email">Email Address:</label>
-						<input type = "text" id = "email" name = "email" class = "form-control" />
-					</div>
-					<div class = "form-group">
-							<label for = "private">Private Account:</label>
-							<input type = "checkbox" id = "private" name = "private" class = "form-check" />
-					</div>
-					<div class = "form-group">
-						<input type = "submit" id = "submit" name = "submit" class = "btn btn-primary"   />
+					<div class="panel panel-eph">
+						<div class="panel-heading">
+							<h3>Register</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-xs-12">
+									<?php echo validation_errors()?>
+								</div>
+								<div class="col-xs-12">
+									<div class = "form-group">
+										<label for = "username">Username:</label>
+										<input type = "text" id = "username" name = "username" class = "form-control" />
+									</div>
+									<div class = "form-group">
+										<label for = "password">Password:</label>
+										<input type = "password" id = "password" name = "password" class = "form-control" />
+									</div>
+									<div class = "form-group">
+										<label for = "passwordConfirm">Confirm Password:</label>
+										<input type = "password" id = "passwordConfirm" name = "passwordConfirm" class = "form-control" />
+									</div>
+									<div class = "form-group">
+										<label for = "email">Email Address:</label>
+										<input type = "text" id = "email" name = "email" class = "form-control" />
+									</div>
+									<div class = "form-group">
+										<label for = "private">Private Account:</label>
+										<input type = "checkbox" id = "private" name = "private" class = "form-check" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<div class="row">
+								<div class="col-xs-12">
+									<input type = "submit" id = "submit" name = "submit" class = "btn btn-primary btn-block"  />
+								</div>
+							</div>
+						</div>
 					</div>
 				</form>
 			</div>
-		</div>	
-	</div>			
-	
-</div>
+		</div>
+	</div>
 <?php
  	if($this->uri->segment(1)=='Login')
  	{
