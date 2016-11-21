@@ -28,9 +28,8 @@
     border-color: rgba(0,0,0,0.75) !important;
 }
 
-<<<<<<< HEAD
+/*Change colour for select text*/ 
 select {
     color: #000000;
 }
-=======
->>>>>>> origin/master
+

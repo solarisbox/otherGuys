@@ -8,33 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Ephemeral - Login</title>	
 </head>
 <body class="home">
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-<div id="wrap" class = "container-fluid ">
-	
-	<div class = "row text-center">
-		<h1>Register</h1>
-		<hr style = "width: 40%">
-	</div>
-	
-	<div class = "row">
-		<div class = "row centered" style = "width:40%; margin:0 auto;" "> 
-			<div class = "row">
-				<?php echo validation_errors()?>
-			</div>
-		
-			<div class = "row">
-=======
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
->>>>>>> origin/master
-=======
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
->>>>>>> origin/master
 				<form method = "POST" id = "registerForm" action = "<?php echo base_url() . 'index.php?/Register/register' ?>">
 					<div class="panel panel-eph">
 						<div class="panel-heading">
