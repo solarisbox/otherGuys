@@ -88,3 +88,11 @@ body {
 .user-profile {
   color: #fff;
 }
+
+a {
+  color:#fff;
+}
+a:focus, a:hover {
+    color: #fff;
+    text-decoration: underline;
+}

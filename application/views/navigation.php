@@ -53,11 +53,11 @@
 					</a>
 				</li>
             </ul>
-            <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
-				<div class="form-group">
-					<input class="form-control" placeholder="Search" type="text">
-				</div>
-				<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search" action="<?php echo base_url() . 'index.php?/Search/navbar_search' ?>" method="POST">
+      				<div class="form-group">
+      					<input class="form-control" placeholder="Search" type="text" name="searchBar" >
+      				</div>
+      				<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
             </form>
         </div>
     </div>

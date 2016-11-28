@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<title>Forum Index</title>
 </head>
-<body>
+<body class="home">
 
 <div id="wrap" class="center-container">
 	<div class="row">
