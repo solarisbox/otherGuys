@@ -29,13 +29,20 @@ class Forum extends MY_Controller
 	   public function view($thread_id = NULL)
 	  {
 	    $data['thread_item'] = $this->threads_model->get_threads($thread_id);
-
-	    $data['messages'] = getThreadMessages($thread_id);
 	
 	    if (empty($data['thread_item']))
 	    {
 	      show_404();
 	    }
+
+	   $messages = getThreadMessages($thread_id);
+	    
+	   for($i = 0; $i < sizeof($messages); $i++)
+	   {
+	   	$messages[$i]['author'] = $messages[$i]['user'] == null ? 'Anonymous' : getUsername($messages[$i]['user']);
+	   }
+	   
+	   $data['messages'] = $messages;
 	
 	    $this->template->show('forum/view', $data);
 	  }
@@ -47,12 +54,26 @@ class Forum extends MY_Controller
 	  	$this->template->show('forum/forum_createThread', $this->TPL);
 	  }
 	  
+	  public function postMessage()
+	  {
+	  	if($this->validateMessage())
+	  	{
+	  		$body = sanitize($this->input->post("body", true));
+	  		$thread = $this->input->post("thread");
+	  		$user =  $_SESSION['userid'] == null ? "null" : $_SESSION['userid'];
+	  		
+	  		$this->db->query("INSERT INTO messages(user, thread, body) VALUES($user, $thread, '$body')");
+	  	}
+	  	
+	  	$this->view($thread);
+	  }
+	  
 	  public function createThread()
 	  {
-	  	 if($this->validate())
+	  	 if($this->validateThread())
 	  	 {
 	  	 	$title = $this->input->post("title");
-		  	$body = addslashes (htmlspecialchars($this->input->post("body", true)));		  	
+		  	$body = sanitize($this->input->post("body", true));		  	
 		  	$private = convertBooleanToInt($this->input->post("private"));
 		  	$topic = $this->input->post("topic");
 		  	$time_number = $this->input->post("time_number");
@@ -84,7 +105,7 @@ class Forum extends MY_Controller
 		  	
 		  	$date = null;
 		  	
-		  	if($unit != null)
+		  	if($unit != null && $time_number != null)
 		  	{
 		  		$date = ", DATE_ADD(CURDATE(), INTERVAL $time_number $unit)";
 		  	}
@@ -104,7 +125,7 @@ class Forum extends MY_Controller
 	  	 }
 	  }
   
-	private function validate()
+	private function validateThread()
 	{
 		$this->load->helper(array('form', 'url'));
 	
@@ -114,6 +135,25 @@ class Forum extends MY_Controller
 		$this->form_validation->set_rules('body', 'Post', 'trim|required');
 		$this->form_validation->set_rules('time_number', 'Time Number', 'trim|numeric');
 		$this->form_validation->set_error_delimiters('<div class = "alert alert-danger">','</div>');
+			
+		if ($this->form_validation->run() == FALSE)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	
+	private function validateMessage()
+	{
+		$this->load->helper(array('form', 'url'));
+	
+		$this->load->library('form_validation');
+			
+		$this->form_validation->set_rules('body', 'Body', 'trim|required');
+		$this->form_validation->set_rules('thread', 'Thread', 'trim|required|numeric');
 			
 		if ($this->form_validation->run() == FALSE)
 		{

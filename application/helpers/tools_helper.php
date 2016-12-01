@@ -28,6 +28,15 @@ function getThreadMessages($thread)
 	return $result->result_array();
 }
 
+function getUsername($user)
+{
+	$CI = &get_instance();
+	
+	$user = $CI->db->query("SELECT * FROM users WHERE user_id = $user")->row();
+	
+	return $user->username;
+}
+
 function getLastMessage($thread)
 {
 	$CI = &get_instance();
@@ -35,6 +44,11 @@ function getLastMessage($thread)
 	$message = $CI->db->query("SELECT * FROM messages WHERE thread = $thread ORDER BY message_id DESC")->row();
 	
 	return $message->post_date;
+}
+
+function sanitize($str)
+{
+	return addslashes (htmlspecialchars($str));
 }
 
 function getMessageCount($thread)
