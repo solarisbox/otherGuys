@@ -14,7 +14,15 @@ class Forum extends MY_Controller
 	
 	  public function index()
 	  {
-	    $data['threads'] = $this->threads_model->get_threads(); 
+	    $threads = $this->threads_model->get_threads(); 
+	    
+	    for($i = 0; $i < sizeof($threads); $i++)
+	    {
+	    	$threads[$i]['message_count'] = getMessageCount($threads[$i]['thread_id']);
+	    }
+	    
+	    $data['threads'] = $threads;
+	    
 	    $this->template->show('forum/forum_home', $data); 
 	  }
 	
@@ -44,7 +52,7 @@ class Forum extends MY_Controller
 	  	 if($this->validate())
 	  	 {
 	  	 	$title = $this->input->post("title");
-		  	$body = $this->input->post("body");		  	
+		  	$body = addslashes (htmlspecialchars($this->input->post("body", true)));		  	
 		  	$private = convertBooleanToInt($this->input->post("private"));
 		  	$topic = $this->input->post("topic");
 		  	$time_number = $this->input->post("time_number");
@@ -78,18 +86,15 @@ class Forum extends MY_Controller
 		  	
 		  	if($unit != null)
 		  	{
-		  		$date = "DATE_ADD(CURDATE(), INTERVAL $time_number $unit)";		  		
+		  		$date = ", DATE_ADD(CURDATE(), INTERVAL $time_number $unit)";
 		  	}
 		  			  	
-		  	$thread = array(
-		  			"title" => $title,
-		  			"body" => $body,
-		  			"private" => $private,
-		  			"topic" => $topic,
-		  			"expiry_date" => $date,
-		  	);
-		  	
-		  	$this->db->insert("threads", $thread);
+		  	$this->db->query("INSERT INTO threads(title, body, private, topic, user
+		  			" . ($date == null ? "" : ", expiry_date") . "
+		  			) VALUES('$title', '$body', $private, '$topic', 
+		  			"  . (isset($_SESSION[userid]) ? $_SESSION[userid] : "null") .  "
+		  			" . ($date == null ? "" : $date) . "
+		  			)");
 		  	
 		  	$this->index();
 	  	 }

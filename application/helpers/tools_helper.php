@@ -28,6 +28,22 @@ function getThreadMessages($thread)
 	return $result->result_array();
 }
 
+function getLastMessage($thread)
+{
+	$CI = &get_instance();
+	
+	$message = $CI->db->query("SELECT * FROM messages WHERE thread = $thread ORDER BY message_id DESC")->row();
+	
+	return $message->post_date;
+}
+
+function getMessageCount($thread)
+{
+	$CI = &get_instance();
+
+	return $CI->db->query("SELECT * FROM messages WHERE thread = $thread")->num_rows();
+}
+
 function getForumTopics()
 {
 	$CI = &get_instance();

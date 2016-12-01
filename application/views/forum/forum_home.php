@@ -57,7 +57,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				        	</td>
 				        	
 				        	<td class = "col-sm-2">
-				        	
+				        		<div class = "text-center">
+				        			Posts:
+				        			<br />
+				        			<h4>
+					        			<?php echo $thread['message_count']; ?>
+					        		</h4>
+				        		</div>
 				        	</td>
 				        </tr>
 			        <? endforeach; ?>      
