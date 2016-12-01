@@ -19,13 +19,6 @@ function isRoot($id)
 	return $result->num_rows() > 0;
 }
 
-function getForumTopics()
-{
-	$CI = &get_instance();
-	
-	return $CI->db->query("SELECT * FROM topics")->result_array();
-}
-
 function isThreadExpiring($id)
 {
 	$CI = &get_instance();
