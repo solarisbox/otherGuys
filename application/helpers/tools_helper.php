@@ -19,6 +19,22 @@ function isRoot($id)
 	return $result->num_rows() > 0;
 }
 
+function getThreadMessages($thread)
+{
+	$CI = &get_instance();
+	
+	$result = $CI->db->query("SELECT * FROM messages WHERE thread = $thread");
+	
+	return $result->result_array();
+}
+
+function getForumTopics()
+{
+	$CI = &get_instance();
+	
+	return $CI->db->query("SELECT * FROM topics")->result_array();
+}
+
 function isThreadExpiring($id)
 {
 	$CI = &get_instance();
