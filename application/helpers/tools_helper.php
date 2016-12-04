@@ -19,6 +19,52 @@ function isRoot($id)
 	return $result->num_rows() > 0;
 }
 
+function getThreadMessages($thread)
+{
+	$CI = &get_instance();
+	
+	$result = $CI->db->query("SELECT * FROM messages WHERE thread = $thread");
+	
+	return $result->result_array();
+}
+
+function getUsername($user)
+{
+	$CI = &get_instance();
+	
+	$user = $CI->db->query("SELECT * FROM users WHERE user_id = $user")->row();
+	
+	return $user->username;
+}
+
+function getLastMessage($thread)
+{
+	$CI = &get_instance();
+	
+	$message = $CI->db->query("SELECT * FROM messages WHERE thread = $thread ORDER BY message_id DESC")->row();
+	
+	return $message->post_date;
+}
+
+function sanitize($str)
+{
+	return addslashes (htmlspecialchars($str));
+}
+
+function getMessageCount($thread)
+{
+	$CI = &get_instance();
+
+	return $CI->db->query("SELECT * FROM messages WHERE thread = $thread")->num_rows();
+}
+
+function getForumTopics()
+{
+	$CI = &get_instance();
+	
+	return $CI->db->query("SELECT * FROM topics")->result_array();
+}
+
 function isThreadExpiring($id)
 {
 	$CI = &get_instance();
