@@ -22,6 +22,10 @@ class UserPanel extends MY_Controller {
 
 		$data['posts'] = $this->user_panel_model->get_posts($userid);
 
+		$thread_count = $this->user_panel_model->get_thread_count($userid);
+		$post_count = $this->user_panel_model->get_message_count($userid);
+		$data['total_posts'] = $thread_count + $post_count;
+
 		$this->template->show('user_panel', $data);
 	}
 

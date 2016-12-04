@@ -10,13 +10,21 @@ class ProfileSettings extends CI_Controller {
     $this->load->helper('tools_helper');
     $this->load->helper('url_helper');
     $this->load->model('settings_model');
+    $this->load->model('user_panel_model');
     $this->load->library('template', 'session');
   }
 
   public function index()
   {    
 		$username = $this->session->userdata('username');
+    $userid = $this->session->userdata('userid');
 		$data['username'] = $username;
+    $data['results'] = $this->user_panel_model->get_user($userid);
+
+    $thread_count = $this->user_panel_model->get_thread_count($userid);
+    $post_count = $this->user_panel_model->get_message_count($userid);
+    $data['total_posts'] = $thread_count + $post_count;
+    
     $this->template->show('profile_settings', $data);
   }
 

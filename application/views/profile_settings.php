@@ -8,6 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="home">
 	<div class="container">
+		<?
+		foreach ($results as $row) {
+			$date = substr($row['join_date'], 0, 10);
+		} ?>
 		<div class="jumbotron force-transparent">
 			<h1 class="text-center">Ephemeral</h1>
 		</div>
@@ -17,6 +21,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="panel-body">
 						<h2><?= $username ?></h2>
 						<div class="col-md-2 col-lg-2" id="leftCol">
+							<img src="http://placehold.it/64x64">
+							<ul class="nav nav-stacked user-profile">
+								<li>Date Joined:</li>
+								<li><?= $date ?></li>
+								<li>Posts: <?= $total_posts ?></li>
+							</ul>
 							<ul class="nav nav-stacked user-profile" id="sidebar">
 							<li><a href="<?= base_url(); ?>index.php?/UserPanel">Control Panel</a></li>
 							<li><a href="<?= base_url(); ?>index.php?/ProfileSettings">Profile Settings</a></li>

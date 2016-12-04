@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$username = $row['username'];
 				$userid = $row['user_id'];
 				$email = $row['email'];
-				$date = substr($row['date_joined'], 0, 10);
+				$date = substr($row['join_date'], 0, 10);
 		} ?>
 		<div class="jumbotron force-transparent">
 			<h1 class="text-center">Ephemeral</h1>
@@ -26,10 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-md-2 col-lg-2" id="leftCol">
 							<img src="http://placehold.it/64x64">
 							<ul class="nav nav-stacked user-profile">
-							<li>Date Joined:</li>
-							<li><?= $date ?></li>
-							<li>Posts:</li>
-							<li><?= $intPosts ?></li>
+								<li>Date Joined:</li>
+								<li><?= $date ?></li>
+								<li>Posts: <?= $total_posts ?></li>
 							</ul>
 							<ul class="nav nav-stacked user-profile" id="sidebar">
 							<li><a href="<?= base_url(); ?>index.php?/UserPanel">Control Panel</a></li>
@@ -43,7 +42,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<h2>Recent Activity</h2>
 							<div>
 							<? foreach ($posts as $row) { ?>
-								<h3> <?= $row['title'] ?></h3>
+								<h3>
+									<a style="" href = <?php echo site_url('forum/'.$row['thread_id']); ?> > 
+										<?= $row['title'] ?> 
+									</a>
+								</h3>
 								<p class="body-excerpt"> <?= $row['body'] ?> </p>
 							<?}?>
 							</div>

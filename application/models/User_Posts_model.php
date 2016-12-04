@@ -10,10 +10,11 @@ class User_Posts_model extends CI_Model{
 
     function get_posts($userid)
     {
-        $this->db->select('*');
-        $this->db->from('thread_participants');
-        $this->db->join('threads', 'threads.thread_id = thread_participants.thread');
-        $this->db->where('thread_participants.user', userid); 
+        $this->db->select('t1.title, t1.thread_id, t2.body')
+          ->from('threads AS t1, messages AS t2')
+          ->where('t1.thread_id = t2.thread')
+          ->where('t2.user', $userid);
+
         $query = $this->db->get();  
        
         return $query->result_array();  
