@@ -96,3 +96,10 @@ a:focus, a:hover {
     color: #fff;
     text-decoration: underline;
 }
+
+.body-excerpt {
+  white-space: nowrap; 
+  width: 100%; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}

@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-xs-12">
 				<div class="panel panel-default force-transparent bordered">
 					<div class="panel-body">
-						<h2>User Name Here</h2>
+						<h2><?= $username ?></h2>
 						<div class="col-md-2 col-lg-2" id="leftCol">
 							<ul class="nav nav-stacked user-profile" id="sidebar">
 							<li><a href="<?= base_url(); ?>index.php?/UserPanel">Control Panel</a></li>
@@ -27,6 +27,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div><!--left-->
 						<div class="col-md-10 col-lg-10">
 							<h2>Your Threads</h2>
+							<div>
+								<? foreach ($threads as $row) { ?>
+									<h3> <?= $row['title'] ?> </h3>
+									<p class="body-excerpt"> <?= $row['body'] ?> </p>
+							<?	} ?>
+							</div>
 						</div>
 					</div>
 				</div>

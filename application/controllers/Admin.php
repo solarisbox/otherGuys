@@ -13,7 +13,7 @@ class Admin extends MY_Controller {
 
 	private function display()
 	{
-	$this->template->show('admin_controlPanel_home', $this->TPL);
+	$this->template->show('displayControlPanel', $this->TPL);
 	}
 
 	public function index()

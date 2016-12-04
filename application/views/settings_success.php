@@ -15,23 +15,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-xs-12">
 				<div class="panel panel-default force-transparent bordered">
 					<div class="panel-body">
-						<h2><?= $username ?> </h2>
+						<h2><?= $username ?></h2>
 						<div class="col-md-2 col-lg-2" id="leftCol">
 							<ul class="nav nav-stacked user-profile" id="sidebar">
 							<li><a href="<?= base_url(); ?>index.php?/UserPanel">Control Panel</a></li>
-							<li><a href="<?= base_url(); ?>index.php?/profileSettings">Profile Settings</a></li>
-							<li><a href="<?= base_url(); ?>index.php?/contactList">Contact List</a></li>
-							<li><a href="<?= base_url(); ?>index.php?/userPosts">All Posts</a></li>
-							<li><a href="<?= base_url(); ?>index.php?/userThreads">Threads</a></li>
+							<li><a href="<?= base_url(); ?>index.php?/ProfileSettings">Profile Settings</a></li>
+							<li><a href="<?= base_url(); ?>index.php?/ContactList">Contact List</a></li>
+							<li><a href="<?= base_url(); ?>index.php?/UserPosts">All Posts</a></li>
+							<li><a href="<?= base_url(); ?>index.php?/UserThreads">Threads</a></li>
 							</ul>
 						</div><!--left-->
 						<div class="col-md-10 col-lg-10">
-							<h2>Your Posts</h2>
-							<div>
-								<? foreach ($posts as $row){ ?>
-									<h3> <?= $row['title'] ?> </h3>
-							<?	} ?>
-							</div>
+							<h4>Your settings have been saved.</h4>
 						</div>
 					</div>
 				</div>

@@ -3,27 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UserThreads extends MY_Controller {
 
-	var $TPL;
 
 	public function __construct()
 	{
-	parent::__construct();
-	// Your own constructor code
-	}
-
-	private function display()
-	{
-	$this->template->show('user_threads', $this->TPL);
+		parent::__construct();
+		$this->load->model('user_threads_model');
+		$this->load->helper('url_helper');
+    	$this->load->library('template', 'session');	
 	}
 
 	public function index()
 	{
-
-	$this->display();
-
-	$user = $this->session->userdata('user');
-	echo $user;
-
+		$userid = $this->session->userdata('userid');
+		$username = $this->session->userdata('username');
+		$data['username'] = $username;
+		$data['threads'] = $this->user_threads_model->get_threads($userid);
+		$this->template->show('user_threads', $data);
 	}
-
-}//End of userPanel
+}

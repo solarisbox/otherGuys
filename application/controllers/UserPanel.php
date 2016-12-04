@@ -3,27 +3,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UserPanel extends MY_Controller {
 
-	var $TPL;
 
 	public function __construct()
 	{
-	parent::__construct();
-	// Your own constructor code
-	}
-
-	private function display()
-	{
-	$this->template->show('user_panel', $this->TPL);
+		parent::__construct();
+	    $this->load->helper('url_helper');
+	    $this->load->library('template');
+		$this->load->library('session');
+		$this->load->model('user_panel_model');
 	}
 
 	public function index()
 	{
+		$username = $this->session->userdata('username');
+		$userid = $this->session->userdata('userid');
 
-	$this->display();
+		$data['results'] = $this->user_panel_model->get_user($userid);
 
-	$user = $this->session->userdata('user');
-	echo $user;
+		$data['posts'] = $this->user_panel_model->get_posts($userid);
 
+		$this->template->show('user_panel', $data);
 	}
 
 }//End of userPanel

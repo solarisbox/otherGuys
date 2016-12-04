@@ -55,14 +55,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?
 									$option = array(
 									        'title'         	=> 'Title',
-									        // 'replies'       	=> 'Number of Replies',
-									        // 'start_date'    	=> 'Thread Start Date',
-									        // 'last_post_date' 	=> 'Last Posting Date',
+									        'start_date'    	=> 'Thread Start Date',
 									        'username'			=> 'Username',
 										); 
 
 									$js = array(
-									        'id'       => 'option',
+									        'id'    => 'option',
 									        'name'	=> 'option',
 									        'class' => 'form-control default-search',
 									        'style' => 'width:30%;',
@@ -75,18 +73,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="form-group">
 									<?
 									$sort = array(
-									        'ASC'         	=> 'Ascending',
-									        'DESC'       	=> 'Descending',
+									        'ASC'   => 'Ascending',
+									        'DESC'  => 'Descending',
 										); 
 
 									$js_sort = array(
-									        'id'       => 'sort',
+									        'id'    => 'sort',
 									        'name'	=> 'sort',
 									        'class' => 'form-control default-search',
 									        'style' => 'width:30%;;',
 										);
-									echo form_dropdown('sort', $sort, '', $js_sort);
 
+									echo form_dropdown('sort', $sort, '', $js_sort);
 									?>
 								</div>
 							</div>

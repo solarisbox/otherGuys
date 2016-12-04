@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-xs-12">
 				<div class="panel panel-default force-transparent bordered">
 					<div class="panel-body">
-						<h2><?= $username ?></h2>
+						<h2>User Name</h2>
 						<div class="col-md-2 col-lg-2" id="leftCol">
 							<ul class="nav nav-stacked user-profile" id="sidebar">
 							<li><a href="<?= base_url(); ?>index.php?/UserPanel">Control Panel</a></li>
@@ -28,27 +28,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-md-10 col-lg-10">
 							<h2>User Settings</h2>
 
-							<?php echo form_open_multipart('ProfileSettings/profile_update');?>
-							
-								<div class="col-xs-12">
-									<?php echo validation_errors()?>
-								</div>
+							<form method = "POST" id = "profileForm centered" action = "<?php echo base_url() . 'index.php?/' ?>">
 								<div class= "row col-lg-12 col-md-12 col-sm-6">
-									<div class = "form-group ">
-										<label for = "firstName">First Name:</label>
-										<input type = "text" id = "firstName" name = "firstName" class = "form-control default-search" />
-									</div><div class = "form-group ">
-										<label for = "lastName">Last Name:</label>
-										<input type = "text" id = "lastName" name = "lastName" class = "form-control default-search" />
-									</div>
 									<div class = "form-group ">
 										<label for = "password">Change Password:</label>
 										<input type = "text" id = "password" name = "password" class = "form-control default-search" />
 									</div>
 
 									<div class = "form-group">
-										<label for = "passwordConfirm">Confirm Password:</label>
-										<input type = "text" id = "passwordConfirm" name = "passwordConfirm" class = "form-control default-search" />
+										<label for = "confirmPass">Confirm Password:</label>
+										<input type = "text" id = "confirmPass" name = "confirmPass" class = "form-control default-search" />
 									</div>
 
 									<div class = "form-group">
@@ -62,12 +51,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 
 									<div class = "form-group">
-										<label class="checkbox-inline"><input type="checkbox" id="private" name="private">Set Account to Private</label>
+										<label for = "avatar">Avatar:</label>
+										<input type = "text" id = "avatar" name = "avatar" class = "form-control default-search" />
 									</div>
 
 									<div class = "form-group">
-										<label for = "avatar">Avatar:</label>
-										<input type = "file" id = "avatar" name = "avatar" class = ""/>
+										<label class="checkbox-inline"><input type="checkbox" value="">Do Not Show Me in User List</label>
 									</div>
 
 									<div class = "form-group row col-md-6 search-buttons">
