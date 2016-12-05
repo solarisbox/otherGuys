@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?
 									$option = array(
 									        'title'         	=> 'Title',
-									        'start_date'    	=> 'Thread Start Date',
+									        'post_date'    	=> 'Thread Start Date',
 									        'username'			=> 'Username',
 										); 
 

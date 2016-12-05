@@ -18,10 +18,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<h3>Admin Control Panel</h3>
 
 						<div class="col-lg-3 col-md-3">
-							<button class="btn btn-primary admin-btn" data-toggle="tab" href="#permissions">Permissions</button> </br>
-							<button class="btn btn-primary admin-btn" >Delete Account</button> </br> 
-							<button class="btn btn-primary admin-btn" >Ban Account</button> </br>
-							<button class="btn btn-primary admin-btn" >Block IP Address</button> </br>
+							<a class = "list-group-item" href = "<?php echo base_url() . 'index.php?/Admin/displayPortalConfig' ?>">
+								Portal Configuration
+							</a>
 						</div>
 
 						<div class="col-lg-9 col-md-9">
@@ -36,7 +35,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="tab-content">
 								  <div id="permissions" class="tab-pane fade in active">
 								    <h3>Permissions</h3>
-								    <p>Place Holder</p>
+								    <h4>Username</h4>
+								    <ul>
+								    	<? foreach ($users as $user){ ?>
+								    		<li><?= $user['username'] ?></li>
+								    <?	}?>
+								    </ul>
 								  </div>
 								  <div id="delete" class="tab-pane fade">
 								    <h3>Delete Account</h3>

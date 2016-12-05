@@ -31,11 +31,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<li>Posts: <?= $total_posts ?></li>
 							</ul>
 							<ul class="nav nav-stacked user-profile" id="sidebar">
-							<li><a href="<?= base_url(); ?>index.php?/UserPanel">Control Panel</a></li>
-							<li><a href="<?= base_url(); ?>index.php?/profileSettings">Profile Settings</a></li>
-							<li><a href="<?= base_url(); ?>index.php?/contactList">Contact List</a></li>
-							<li><a href="<?= base_url(); ?>index.php?/userPosts">All Posts</a></li>
-							<li><a href="<?= base_url(); ?>index.php?/userThreads">Threads</a></li>
+								<li><a href="<?= base_url(); ?>index.php?/UserPanel">Control Panel</a></li>
+								<li><a href="<?= base_url(); ?>index.php?/ProfileSettings">Profile Settings</a></li>
+								<li><a href="<?= base_url(); ?>index.php?/ContactList">Contact List</a></li>
+								<li><a href="<?= base_url(); ?>index.php?/UserPosts">All Posts</a></li>
+								<li><a href="<?= base_url(); ?>index.php?/UserThreads">Threads</a></li>
 							</ul>
 						</div><!--left-->
 						<div class="col-md-10 col-lg-10">
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div>
 							<? foreach ($posts as $row) { ?>
 								<h3>
-									<a style="" href = <?php echo site_url('forum/'.$row['thread_id']); ?> > 
+									<a style="" href = "<?php echo site_url('forum/'.$row['thread_id']); ?>" > 
 										<?= $row['title'] ?> 
 									</a>
 								</h3>

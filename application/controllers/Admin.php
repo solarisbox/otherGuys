@@ -7,23 +7,20 @@ class Admin extends MY_Controller {
 
 	public function __construct()
 	{
-	parent::__construct();
-	// Your own constructor code
-	}
-
-	private function display()
-	{
-	$this->template->show('displayControlPanel', $this->TPL);
+		parent::__construct();
+		// Your own constructor code
+		$this->load->model('admin_model');
 	}
 
 	public function index()
+ 	{
+ 		$this->load->view('welcome_message');
+ 	}
+	
+	public function displayControlPanel()
 	{
-
-	$this->display();
-
-	$user = $this->session->userdata('user');
-	echo $user;
-
+		$data['users'] = $this->admin_model->get_users();
+		$this->template->show('admin_controlPanel_home', $data);
 	}
 	
 	public function displayPortalConfig()

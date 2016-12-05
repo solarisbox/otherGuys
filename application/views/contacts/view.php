@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-xs-12">
 				<div class="panel panel-default force-transparent bordered">
 					<div class="panel-body">
-						<h2>User Name Here</h2>
+						<h2><?= $userid ?></h2>
 						<div class="col-md-2 col-lg-2" id="leftCol">
 							<ul class="nav nav-stacked user-profile" id="sidebar">
 							<li><a href="<?= base_url(); ?>index.php?/UserPanel">Control Panel</a></li>
@@ -26,10 +26,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</ul>
 						</div><!--left-->
 						<div class="col-md-10 col-lg-10">
-							<h2>Contact Lists</h2>
+							<? $title = current($list_item)?>
+							<h2> <?= $title['title'] ?> </h2>
+							<h3>Add New Member: <span onclick="show();" class="glyphicon glyphicon-plus"></span></h3>
+							<div id="member-form" class="member-form" style="display:none">
+								<form method = "POST" id = "newMember" action= "<?php echo base_url() . 'index.php?/ContactList/add_user' ?>" >
+									<input id="username" name="username" type="text" />
+									<input style="display:none;" id="group_id" name="group_id" value="<?= $title['group_id'] ?>"/>
+									<input type = "submit" id = "add" name = "add" class = "btn btn-primary" value = "Add Member"  />
+								</form>	
+							</div> 
+							<br>
+							<h4>Members: </h4>
+								<? foreach($list_item as $row){ ?>
+									<h4> <?= $row['username'] ?> 	
+							<?	}?>
+							</h4>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function show(){
+			$("#member-form").show();
+		}	
+	</script>
