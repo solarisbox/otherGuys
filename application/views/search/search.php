@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<div class="form-group">
 									<h4>Sort Results by</h4>
-									<?
+									<?php
 									$option = array(
 									        'title'         	=> 'Title',
 									        'post_date'    	=> 'Thread Start Date',
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 
 								<div class="form-group">
-									<?
+									<?php
 									$sort = array(
 									        'ASC'   => 'Ascending',
 									        'DESC'  => 'Descending',

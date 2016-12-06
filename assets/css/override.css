@@ -11,6 +11,7 @@
     -moz-border-radius: 0 !important;
     border-radius: 0 !important;
     font-family: "Trebuchet MS", Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
 /*
@@ -31,5 +32,12 @@
 /*Change colour for select text*/ 
 select {
     color: #000000;
+}
+
+/*
+   | Removes any border properties, this is if you want to use a table but don't want the white borders
+*/
+.clear-border {
+    border: 0 !important;
 }
 
