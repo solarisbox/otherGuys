@@ -25,50 +25,61 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!--right-->
       <div class="col-md-10 col-lg-10"> 
       	
-	      	<div>
+	      	<div class = "row text-center">
 	      		<a href="<?= base_url(); ?>index.php?/Forum/displayCreateThread" class = "btn btn-primary">New Thread</a>
 	      	</div>
       		<br />
-	      	<table class = "table table-bordered forumTable">      	
-		   		<tbody>
-			        <? foreach ($threads as $thread): ?>
-				        <tr>
-				        	<td class = "col-sm-10">
-				        		<h4>
-				        			<a style = "" href = "<?php echo site_url('forum/'.$thread['thread_id']); ?>">
-				        				<?php echo $thread['title']; ?>
-				        			</a>
-				        		</h4>
-				        		
-				        		<hr>
-				        						        		
-				        		<?php 
-				 
-				        			if(strlen($thread['body']) > 200)
-				        			{
-				        				echo substr($thread['body'], 0, 200) . '...';
-				        			}
-				        			else 
-				        			{
-				        				echo $thread['body'];
-				        			}				        		
-				        		?>
-				        		
-				        	</td>
-				        	
-				        	<td class = "col-sm-2">
-				        		<div class = "text-center">
-				        			Posts:
-				        			<br />
-				        			<h4>
-					        			<?php echo $thread['message_count']; ?>
+      		<?php if(isset($threads) && sizeof($threads) > 0): ?>
+		      	<table class = "table table-bordered forumTable">      	
+			   		<tbody>
+				        <?php foreach ($threads as $thread): ?>
+					        <tr>
+					        	<td class = "col-sm-10">
+					        		<h4>
+					        			<a style = "" href = "<?php echo site_url('forum/'.$thread['thread_id']); ?>">
+					        				<?php echo $thread['title']; ?>
+					        			</a>
 					        		</h4>
-				        		</div>
-				        	</td>
-				        </tr>
-			        <? endforeach; ?>      
-		        </tbody> 	
-			</table>
+					        		
+					        		<hr>
+					        						        		
+					        		<?php 
+					 
+					        			if(strlen($thread['body']) > 200)
+					        			{
+					        				echo substr($thread['body'], 0, 200) . '...';
+					        			}
+					        			else 
+					        			{
+					        				echo $thread['body'];
+					        			}				        		
+					        		?>
+					        		
+					        	</td>
+					        	
+					        	<td class = "col-sm-2">
+					        		<div class = "text-center">
+					        			Posts
+					        			<br />
+					        			<h4>
+						        			<?php echo $thread['message_count']; ?>
+						        		</h4>
+					        		</div>
+					        	</td>
+					        </tr>
+				        <?php endforeach; ?>      
+			        </tbody> 	
+				</table>
+			
+				<br />
+				<br />
+				<br />
+				
+				<?php else: ?>
+					<div class = "row text-center">
+						Unfortunately there are currently no active threads
+					</div>
+			<?php endif; ?>
 	 	</div>
 	</div><!--/row-->
 </div><!--/container-->

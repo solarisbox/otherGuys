@@ -27,28 +27,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="row">
 								<div class="form-group">
 									<label for="title" class="control-label">Title</label>
-									<input type="text" name = "title" class="form-control" id="title" placeholder="Title Thread">
+									<input type="text" name = "title" class="form-control" id="title" placeholder="Title Thread" value = "<?php echo $_POST['title']?>" />
 								</div>
 							</div>
 							<div class="row">
 								<div class="form-group">
 									<label for="body" class="control-label">Post</label>
-									<textarea type="text" rows="10" style="height:100%;" name = "body" class="form-control" id="body" placeholder="Thread Post..."></textarea>
+									<textarea rows="10" style="height:100%;" name = "body" class="form-control" id="body" placeholder="Thread Post..."><?php echo $_POST['body']?></textarea>
 								</div>
 							</div>
-							<div class="row">
-								<div class="form-group">
-									<div style = "display: inline-block">
-										<label class = "checkbox">
-											Private
-										</label>
-									</div>
-									
-									<div style = "display: inline-block">
-										<input type = "checkbox" name = "private" />	
+							<?php if(isset($_SESSION) && isset($_SESSION['userid'])): ?>
+								<div class="row">
+									<div class="form-group">
+										<div style = "display: inline-block">
+											<label class = "checkbox">
+												Private
+											</label>
+										</div>
+										
+										<div style = "display: inline-block">
+											<input type = "checkbox" name = "private" />	
+										</div>
 									</div>
 								</div>
-							</div>
+							<?php endif; ?>
 							<div class="row">
 								<div class ="row">
 									<strong>Expires in...</strong>
@@ -57,18 +59,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="form-group">
 									<div class ="row">
 										<div class = "col-sm-4">
-											<input type = "text" name = "time_number" placeholder = "Digit" id = "time_number" class = "form-control" />
+											<input type = "text" name = "time_number" placeholder = "Digit" id = "time_number" class = "form-control" value = "<?php echo $_POST['time_number']; ?>" />
 										</div>
 										
 										<div class = "col-sm-8">
+										<?php $time_unit = $_POST['time_unit']; ?>
 											<select name = "time_unit" id = "selectTimeUnit" class = "form-control">
-												<option value = "minutes">Minutes</option>
-												<option value = "hours">Hours</option>
-												<option value = "days">Days</option>
-												<option value = "weeks">Weeks</option>
-												<option value = "months">Months</option>
-												<option value = "years">Years</option>
-												<option value = "never">Never</option>
+												<option value = "minutes" <?php echo $time_unit == "minutes" ? "selected" : "" ?>>Minutes</option>
+												<option value = "hours" <?php echo $time_unit == "hours" ? "selected" : "" ?>>Hours</option>
+												<option value = "days" <?php echo $time_unit == "days" ? "selected" : "" ?>>Days</option>
+												<option value = "weeks" <?php echo $time_unit == "weeks" ? "selected" : "" ?>>Weeks</option>
+												<option value = "months" <?php echo $time_unit == "months" ? "selected" : "" ?>>Months</option>
+												<option value = "years" <?php echo $time_unit == "years" ? "selected" : "" ?>>Years</option>
+												<option value = "never" <?php echo $time_unit == "never" ? "selected" : "" ?>>Never</option>
 											</select>
 										</div>
 									</div>
@@ -84,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<br />
 										<select name = "topic" class = "form-control" style = "width: 50%">
 											<?php foreach($topics as $topic): ?>
-												<option value = "<?php echo $topic['topic_id']; ?>">
+												<option value = "<?php echo $topic['topic_id']; ?>" <?php echo $_POST['topic'] == $topic['topic_id'] ? "selected" : "" ?>>
 													<?php echo $topic['title']; ?>
 												</option>
 											<?php endforeach;?>

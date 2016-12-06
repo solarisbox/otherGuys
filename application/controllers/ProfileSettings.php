@@ -46,9 +46,7 @@ class ProfileSettings extends CI_Controller {
 
     $config['upload_path'] = './avatars/';
     $config['allowed_types'] = 'gif|jpg|png';
-    $config['max_size']      = 20;
-    $config['max_width']     = 64;
-    $config['max_height']    = 64;
+    $config['max_size']      = 5000;
     $this->load->library('upload', $config);
     $this->upload->do_upload('avatar');
     $avatar = $this->upload->data();

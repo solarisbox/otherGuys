@@ -14,16 +14,59 @@ class Forum extends MY_Controller
 	
 	  public function index()
 	  {
-	    $threads = $this->threads_model->get_threads(); 
-	    
-	    for($i = 0; $i < sizeof($threads); $i++)
-	    {
-	    	$threads[$i]['message_count'] = getMessageCount($threads[$i]['thread_id']);
-	    }
+	    $threads = getThreads(); 
 	    
 	    $data['threads'] = $threads;
 	    
 	    $this->template->show('forum/forum_home', $data); 
+	  }
+	  
+	  public function lookupUsers()
+	  {
+	  	$term = $this->input->post("term");
+	  	
+	  	echo lookupUsers($term);
+	  }
+	  
+	  public function addParticipant()
+	  {
+	  	$thread_participant['thread'] = $this->input->post("thread");
+	  	$thread_participant['user'] = $this->input->post("user");
+	  	
+	  	$this->db->insert("thread_participants", $thread_participant);
+	  }
+	  
+	  public function ajaxLoadThreadParticipantsTable()
+	  {
+	  	$userid = $_SESSION['userid']; 
+	  	$thread = $this->input->post("thread");
+	  	$TPL['participants'] = getThreadParticipants($thread);
+	  	$TPL['includeActions'] = isAdmin($userid) || isThreadAuthor($userid, $thread);
+	  	$TPL['thread_item']['thread_id'] = $thread;
+	  	
+	  	
+	  	echo $data;
+	  }
+	  
+	  public function ajaxLoadThreadParticipants()
+	  {
+	  	$userid = $_SESSION['userid'];
+	  	$thread = $this->input->post("thread");
+	  	$TPL['participants'] = ajaxLoadThreadParticipants($thread);
+	  	$TPL['includeActions'] = isAdmin($userid) || isThreadAuthor($userid, $thread);
+	  	$TPL['thread_item']['thread_id'] = $thread;
+	  
+	  	$data = $this->load->view('forum/forum_threadParticipantsAjax', $TPL, true);
+	  
+	  	echo $data;
+	  }
+	  
+	  public function removeParticipant()
+	  {
+	  	$participant = $this->input->post("participant");
+	  
+	  	$this->db->where("participant_id", $participant);
+	  	$this->db->delete("thread_participants");
 	  }
 	
 	   public function view($thread_id = NULL)
@@ -39,6 +82,7 @@ class Forum extends MY_Controller
 	    
 	   for($i = 0; $i < sizeof($messages); $i++)
 	   {
+	   	$messages[$i]['avatar'] = getUserAvatar($messages[$i]['user']);
 	   	$messages[$i]['author'] = $messages[$i]['user'] == null ? 'Anonymous' : getUsername($messages[$i]['user']);
 	   }
 	   
@@ -74,7 +118,8 @@ class Forum extends MY_Controller
 	  	 {
 	  	 	$title = $this->input->post("title");
 		  	$body = sanitize($this->input->post("body", true));		  	
-		  	$private = convertBooleanToInt($this->input->post("private"));
+	  	 	$private = $this->input->post("private");
+		  	$private = $private == null ? 0 : convertBooleanToInt($private);
 		  	$topic = $this->input->post("topic");
 		  	$time_number = $this->input->post("time_number");
 		  	$time_unit = $this->input->post("time_unit");

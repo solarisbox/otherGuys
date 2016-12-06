@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/custom.css" />
     <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/interface.css" />
-    <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/override.css" />
-    <script src = "<?php echo assetUrl() . 'js/jquery-3.1.1.min.js'?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/override.css" />	
+    <link rel="stylesheet" type="text/css" href="<?= assetUrl(); ?>css/jquery-ui.min.css" />	
+    <script src = "<?php echo assetUrl() . 'js/jquery-3.1.1.min.js'?>"></script>		
  </head>
  <body>

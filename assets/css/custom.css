@@ -26,6 +26,16 @@ body {
   background-color: #101010;
 }
 
+.column-sortable
+{
+	cursor: pointer;
+}
+
+.column-sortable:hover
+{
+	background-color:#E8E8E8
+}
+
 .inline
 {
 	display:inline;	
