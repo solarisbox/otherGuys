@@ -44,6 +44,7 @@ class Forum extends MY_Controller
 	  	$TPL['includeActions'] = isAdmin($userid) || isThreadAuthor($userid, $thread);
 	  	$TPL['thread_item']['thread_id'] = $thread;
 	  	
+	  	$data = $this->load->view('forum/forum_threadParticipantsTable', $TPL, true);
 	  	
 	  	echo $data;
 	  }
