@@ -1,17 +1,27 @@
-$(".column-sortable").click(
+$(document).ready(function(){	
+	
+	$(".column-sortable").click(
 		function()
 		{
 			var field = $(this).data("field");
 			var sortDirection = $(this).data("sortdirection") == null ? "desc" : $(this).data("sortdirection");
 
-			var element = this;
-			
-			if(data == null)
+			if(typeof data === 'undefined')
 			{
-				data = {};
+				var data = {};
 			}
+			
 			data["field"] = field;
 			data["sortDirection"] = sortDirection;
+			
+			var search = $(".searchFilter").val();
+			
+			if(search != null && (search = search.trim()).length > 0)
+			{
+				data["search"] = search;				
+			}
+			
+			var element = this;
 							
 			$.ajax({
 				type:"POST",
@@ -42,12 +52,12 @@ $(".column-sortable").click(
 
 	$(".searchFilter").keyup(
 			function()
-			{				
-				var search = $(this).val();		
+			{
+				var search = $(this).val();
 				
-				if(data == null)
+				if(typeof data === 'undefined')
 				{
-					data = {};
+					var data = {};
 				}
 				
 				data["search"] = search;
@@ -68,4 +78,5 @@ $(".column-sortable").click(
 						}
 				});
 			}
-	); 
+	);
+});
