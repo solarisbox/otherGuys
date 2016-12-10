@@ -63,6 +63,28 @@ class Admin_model extends CI_Model{
 		}			
 	}
 
+	function unban($data)
+	{
+		$names = array();
+
+		$array = array(
+			'active' => 1,
+		);		
+
+		foreach ($data as $row)
+		{
+			if($row['active'] == 1)
+			{
+				array_push($names, $row['user_id']);
+			}
+		}
+
+		if(!empty($names)){
+			$this->db->where_in('user_id', $names);
+			$this->db->update('users', $array);
+		}			
+	}
+
 	function block()
 	{
 

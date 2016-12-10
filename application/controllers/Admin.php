@@ -94,6 +94,24 @@ class Admin extends MY_Controller {
 		redirect(base_url().'index.php?/Admin/success');
 	}
 
+	public function unban()
+	{
+		$i = 0;
+		$j = 0;
+    	foreach ($this->input->post('userid') as $row)
+    	{
+    		$data[$i++]['user_id'] = (int)$row;
+    	}
+        
+        foreach ($this->input->post('active') as $row)
+        {
+    		$data[$j++]['active'] = (int)$row;
+    	}
+
+		$this->admin_model->unban($data);
+		redirect(base_url().'index.php?/Admin/success');
+	}
+
 	public function block()
 	{
 		$i = 0;
