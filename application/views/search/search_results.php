@@ -9,17 +9,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body class="home">
 
-<div id="wrap" class="center-container">
+<div id="wrap" class="container">
 	<div class="row">
       <!--left-->
-      <div class="col-md-2 col-lg-2" id="leftCol">
+      <div class="col-xs-2" id="leftCol">
       </div><!--left-->
       
       <!--right-->
-      <div class="col-md-10 col-lg-10"> 
-      	<div class="col-md-2 col-lg-2 pull-right"><h4 class="thread-info">Last Post</h4></div>
-      	<div class="col-md-2 col-lg-2 pull-right"><h4 class="thread-info">Views</h4></div> 
-     		
+      <div class="col-xs-10">
+
      		<?php if($results == false) {
                 echo '<h3>Sorry, no results were found.</h3>';
                 echo '<h4>Search suggestions:</h4>';
@@ -27,13 +25,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      		}
             else {
                 foreach ($results as $row) {  ?>
-            <div class="row">
-                <div class="col-md-8 col-lg-8">
+                <div class="row">
+                <div class="col-xs-12">
                     <h3><a class="thread-title" href="<?php echo site_url('forum/'.$row['thread_id']); ?>"><?= $row['title']?></a></h3>
                     <p>Started By: <?= $row['username'] ?>,</p>
                 </div>
-                <div style="height:100%;" class="col-md-2 col-lg-2"><h5 style="margin-top:33%;">test</h5></div>
-                <div class="col-md-2 col-lg-2"><h5 style="margin-top:33%;">test</h5></div>
+                <div class="col-xs-12"><?= $row['body'] ?></div>
                 </div>
                 <hr>
                 <?php }
