@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</br>
 
 							<!--Search Options-->
-							<div cass="row row col-lg-12 col-md-12 col-sm-6">
+							<div class="row col-lg-12 col-md-12 col-sm-6">
 								<h3 class="search-options"><strong>Search Options</strong></h3>
 
 								<div class="form-group">
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									        'title'         	=> 'Title',
 									        'post_date'    	=> 'Thread Start Date',
 									        'username'			=> 'Username',
-										); 
+										);
 
 									$js = array(
 									        'id'    => 'option',
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									$sort = array(
 									        'ASC'   => 'Ascending',
 									        'DESC'  => 'Descending',
-										); 
+										);
 
 									$js_sort = array(
 									        'id'    => 'sort',
@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class = "form-group row col-md-6 search-buttons">
 								<input type = "submit" id = "search" name = "search" class = "btn btn-primary" value = "Search"  />
 							    <button type="reset" class="btn btn-primary">Clear</button>
-							</div>	
+							</div>
 						</form><!--End of Form-->
 					</div>
 				</div>

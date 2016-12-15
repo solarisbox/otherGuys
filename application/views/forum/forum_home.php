@@ -41,6 +41,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															<a href="<?php echo site_url('forum/'.$thread['thread_id']); ?>">
 																<?php echo $thread['title']; ?>
 															</a>
+															
+															<?php echo $thread['is_thread_expiring'] ? "| <span style = 'color:red;'>Expiring</span>" : ""; ?>
+															
 														</div>
 														<div class="col-xs-6 text-right">
 															Posts: <?php echo $thread['message_count']; ?>

@@ -153,7 +153,7 @@ class Forum extends MY_Controller
 		  	
 		  	if($unit != null && $time_number != null)
 		  	{
-		  		$date = ", DATE_ADD(CURDATE(), INTERVAL $time_number $unit)";
+		  		$date = ", DATE_ADD(NOW(), INTERVAL $time_number $unit)";
 		  	}
 		  			  	
 		  	$this->db->query("INSERT INTO threads(title, body, private, topic, user
