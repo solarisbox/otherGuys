@@ -8,7 +8,7 @@ class Home extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
-    // Your own constructor code
+    $this->load->model('ip_model');
   }
 
   private function display()
@@ -34,6 +34,13 @@ class Home extends CI_Controller {
     $this->display();
 
     $user = $this->session->userdata('user');
+    $data['user_id'] = $this->session->userdata('userid');
+
+    if(isset($data['user_id'])){
+      $data['ip_address'] = $this->input->ip_address();
+      $this->ip_model->set_ip($data);
+    }
+    
     echo $user;
 
   }//End of index()

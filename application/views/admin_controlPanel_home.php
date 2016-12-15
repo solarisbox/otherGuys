@@ -190,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									  		</div>
 									    	<div class="col-lg-5 col-md-5">
 									    	<input style="display:none;" type="text" name="userid[]" id="userid" value="<?=$user['user_id']?>" />
-									     	<input type="checkbox" name="block[]" id="block" />
+									    	<input type="hidden" name="block[]" id="block" value="0" /><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
 									    	</div>
 									    </div>
 									    <?	}?>

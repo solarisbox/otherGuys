@@ -14,7 +14,7 @@ class Groups_model extends CI_Model{
         ->from('groups AS t1, group_members AS t2')
         ->where('t1.group_id = t2.group')
         ->where('t2.user', $userid);
-    $query = $this->db->get(); 
+    	$query = $this->db->get(); 
 		return $query->result_array();
 	}
 
@@ -26,13 +26,13 @@ class Groups_model extends CI_Model{
         ->join('group_members gm', 'gm.group=g.group_id', 'left')
         ->join('users u', 'u.user_id=gm.user', 'left')
         ->where('g.group_id', $id);
-    $query = $this->db->get();
+	    $query = $this->db->get();
 
-    foreach ($query->result_array() as $row) 
-    {
-    	$rows[] = $row;
-    } 
-    return $rows;
+	    foreach ($query->result_array() as $row) 
+	    {
+	    	$rows[] = $row;
+	    } 
+	    return $rows;
 	}
 
 	function create($data){

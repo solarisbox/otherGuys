@@ -1,4 +1,10 @@
 ###################
+What is Ephemeral?
+###################
+Provide a service that will allow to post any information, or ask questions anonymously.
+A bulletin board for whistle blowers.
+
+###################
 What is CodeIgniter
 ###################
 

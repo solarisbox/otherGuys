@@ -83,11 +83,13 @@ class Admin extends MY_Controller {
     	foreach ($this->input->post('userid') as $row)
     	{
     		$data[$i++]['user_id'] = (int)$row;
+
     	}
         
         foreach ($this->input->post('active') as $row)
         {
     		$data[$j++]['active'] = (int)$row;
+
     	}
 
 		$this->admin_model->ban($data);
@@ -118,18 +120,16 @@ class Admin extends MY_Controller {
 		$j = 0;
     	foreach ($this->input->post('userid') as $row)
     	{
-    		$data[$i++]['user'] = $row;
+    		$data[$i++]['user_id'] = (int)$row;
     	}
         
-        foreach ($this->input->post('active') as $row)
+        foreach ($this->input->post('block') as $row)
         {
-        	$delete = convertBooleanToInt($row);
-    		$data[$j++]['block'] = $delete;
-
+    		$data[$j++]['block'] = (int)$row;
 		}
 
-		$this->admin_model->block();
-
+		$this->admin_model->block($data);
+		redirect(base_url().'index.php?/Admin/success');
 	}
 
 }//End of Admin
